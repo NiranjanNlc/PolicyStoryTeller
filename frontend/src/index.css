@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    margin: 0;
+    @apply bg-gray-900 text-gray-100 antialiased;
+  }
+}
+
+/* Simple, eye-friendly quest theme — gray base + single sky accent */
+@layer components {
+  .q-panel {
+    @apply rounded-2xl border border-gray-700 bg-gray-800/95 p-5 shadow-sm sm:p-6;
+  }
+
+  .q-panel-inset {
+    @apply rounded-xl border border-gray-700/80 bg-gray-900/70 p-4;
+  }
+
+  .q-title {
+    @apply font-display text-xl font-semibold text-gray-50 sm:text-2xl;
+  }
+
+  .q-subtitle {
+    @apply text-sm leading-relaxed text-gray-400;
+  }
+
+  .q-label {
+    @apply text-xs font-bold uppercase tracking-wider text-gray-500;
+  }
+
+  .q-accent {
+    @apply text-sky-400;
+  }
+
+  .q-btn-primary {
+    @apply min-h-11 rounded-xl bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-sky-500 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .q-btn-secondary {
+    @apply min-h-11 rounded-xl border border-gray-600 bg-gray-800 px-5 py-2.5 text-sm font-semibold text-gray-200 transition hover:border-gray-500 hover:bg-gray-700/80 disabled:cursor-not-allowed disabled:opacity-40;
+  }
+
+  .q-progress-track {
+    @apply h-2 overflow-hidden rounded-full bg-gray-700;
+  }
+
+  .q-progress-fill {
+    @apply h-full rounded-full bg-sky-500 transition-all duration-300;
+  }
+
+  .q-badge {
+    @apply inline-flex items-center rounded-full border border-gray-600 bg-gray-700/80 px-3 py-1 text-xs font-medium text-gray-200;
+  }
+
+  .q-badge-accent {
+    @apply inline-flex items-center rounded-full bg-sky-600/20 px-3 py-1 text-xs font-semibold text-sky-200;
+  }
+
+  .q-alert-error {
+    @apply rounded-xl border border-red-900/50 bg-red-950/50 px-4 py-3 text-sm text-red-200;
+  }
+
+  .q-icon-box {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-gray-700 bg-gray-800 text-xl;
+  }
+
+  .q-risk-panel {
+    @apply rounded-xl border border-red-900/40 bg-red-950/25 p-4 text-red-100;
+  }
+
+  .q-safe-panel {
+    @apply rounded-xl border border-green-900/40 bg-green-950/25 p-4 text-green-100;
+  }
+
+  .q-scenario-block {
+    @apply rounded-xl border-l-4 border-sky-600/50 bg-gray-900/80 px-4 py-3 text-sm leading-7 text-gray-100;
+  }
+}
+
+@keyframes quest-slide {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(400%);
+  }
+}
