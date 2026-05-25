@@ -2,7 +2,6 @@
 
 Turn dense **Nepali legislative bills** into a **plain-language policy brief**, **three diverse personas**, each with a **day-in-the-life scenario**, and **what becomes riskier / safer**. Built for **digital equity** and civic literacy.
 
-UI flow inspired by [Niyam Niyati](https://github.com/NiranjanNlc/niyam-niyati); LLM via OpenRouter (Gemma family).
 
 ## Four bills available now
 
