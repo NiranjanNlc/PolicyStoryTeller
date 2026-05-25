@@ -6,29 +6,36 @@ type Props = {
   lang: Lang;
   selected: boolean;
   disabled?: boolean;
+  compact?: boolean;
   onSelect: (bill: Bill) => void;
 };
 
-export function BillCard({ bill, lang, selected, disabled, onSelect }: Props) {
+export function BillCard({ bill, lang, selected, disabled, compact, onSelect }: Props) {
   return (
     <button
       type="button"
       disabled={disabled}
       onClick={() => onSelect(bill)}
       aria-pressed={selected}
-      className={`group flex flex-col gap-3 rounded-2xl border p-5 text-left transition ${
+      className={`group flex h-full min-h-[4.5rem] flex-col justify-center gap-1 rounded-xl border p-3 text-left transition sm:min-h-0 sm:gap-2 sm:rounded-2xl sm:p-4 ${
         selected
-          ? "border-sky-500 bg-sky-600/10 ring-2 ring-sky-500/30"
-          : "border-gray-700 bg-gray-800/80 hover:border-gray-600 hover:bg-gray-800"
+          ? "border-blue-500 bg-blue-50 ring-2 ring-blue-300"
+          : "border-gray-200 bg-white hover:border-blue-300 hover:bg-blue-50/50"
       } ${disabled ? "cursor-not-allowed opacity-50" : ""}`}
     >
-      <span className="text-3xl" aria-hidden>
+      <span className={compact ? "text-2xl" : "text-3xl"} aria-hidden>
         {bill.emoji}
       </span>
-      <h3 className="font-display text-base font-semibold leading-snug text-gray-50">
+      <h3
+        className={`font-display font-semibold leading-tight text-gray-900 ${
+          compact ? "line-clamp-2 text-xs sm:text-sm" : "text-base"
+        }`}
+      >
         {bill.label[lang]}
       </h3>
-      <p className="text-sm leading-relaxed text-gray-400">{bill.summary[lang]}</p>
+      {!compact ? (
+        <p className="line-clamp-2 text-sm leading-snug text-gray-600">{bill.summary[lang]}</p>
+      ) : null}
     </button>
   );
 }

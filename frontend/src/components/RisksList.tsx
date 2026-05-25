@@ -1,34 +1,17 @@
 import type { RiskAnalysis } from "../api/types";
 import type { Strings } from "../i18n";
 
-type Props = { risks: RiskAnalysis; t: Strings; variant?: "default" | "quest" };
+type Props = { risks: RiskAnalysis; t: Strings; variant?: "default" | "compact" };
 
-function ImpactCards({
-  items,
-  tone,
-  title,
-  icon,
-}: {
-  items: string[];
-  tone: "risk" | "safe";
-  title: string;
-  icon: string;
-}) {
+function ImpactList({ items, title, tone }: { items: string[]; title: string; tone: "risk" | "safe" }) {
   const panel = tone === "risk" ? "q-risk-panel" : "q-safe-panel";
-
   return (
     <section className={panel} aria-label={title}>
-      <h3 className="flex items-center gap-2 text-sm font-semibold">
-        <span aria-hidden>{icon}</span>
-        {title}
-      </h3>
-      <ul className="mt-3 space-y-2">
+      <h3 className="text-xs font-semibold">{title}</h3>
+      <ul className="mt-1.5 space-y-1">
         {items.map((item, i) => (
-          <li
-            key={`${i}-${item.slice(0, 24)}`}
-            className="rounded-lg bg-black/15 px-3 py-2 text-sm leading-relaxed"
-          >
-            {item}
+          <li key={i} className="line-clamp-3 text-xs leading-snug">
+            • {item}
           </li>
         ))}
       </ul>
@@ -37,14 +20,11 @@ function ImpactCards({
 }
 
 export function RisksList({ risks, t, variant = "default" }: Props) {
-  if (variant === "quest") {
+  if (variant === "compact") {
     return (
-      <div className="grid gap-3" aria-labelledby="risks-heading">
-        <h2 id="risks-heading" className="sr-only">
-          {t.risksHeading}
-        </h2>
-        <ImpactCards items={risks.riskier} tone="risk" title={t.riskier} icon="⚠️" />
-        <ImpactCards items={risks.safer} tone="safe" title={t.safer} icon="✅" />
+      <div className="flex min-h-0 flex-1 flex-col gap-2 overflow-hidden" aria-label={t.impactTab}>
+        <ImpactList items={risks.riskier} title={t.becomesRiskier} tone="risk" />
+        <ImpactList items={risks.safer} title={t.becomesSafer} tone="safe" />
       </div>
     );
   }
@@ -54,8 +34,8 @@ export function RisksList({ risks, t, variant = "default" }: Props) {
       <h2 id="risks-heading" className="sr-only">
         {t.risksHeading}
       </h2>
-      <ImpactCards items={risks.riskier} tone="risk" title={t.riskier} icon="⚠️" />
-      <ImpactCards items={risks.safer} tone="safe" title={t.safer} icon="✅" />
+      <ImpactList items={risks.riskier} title={t.riskier} tone="risk" />
+      <ImpactList items={risks.safer} title={t.safer} tone="safe" />
     </div>
   );
 }

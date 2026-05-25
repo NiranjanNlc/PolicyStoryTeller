@@ -2,7 +2,18 @@
 
 Turn dense **Nepali legislative bills** into a **plain-language policy brief**, **three diverse personas**, each with a **day-in-the-life scenario**, and **what becomes riskier / safer**. Built for **digital equity** and civic literacy.
 
-UI flow inspired by [Niyam Niyati](https://github.com/NiranjanNlc/niyam-niyati); LLM via OpenRouter (Gemma family).
+LLM via OpenRouter (Gemma family).
+
+## Demo video
+
+Screen recording of the app on mobile (scenario + impact flow):
+
+<video src="Screen%20Recording%202026-05-25%20124229.mp4" controls width="100%">
+  Your browser does not support embedded video.
+  <a href="Screen%20Recording%202026-05-25%20124229.mp4">Download the demo (MP4)</a>
+</video>
+
+Direct link: [Screen Recording 2026-05-25 124229.mp4](Screen%20Recording%202026-05-25%20124229.mp4)
 
 ## Four bills available now
 

@@ -15,22 +15,28 @@ export function QuestHeader({
   chapter,
   title,
   subtitle,
+  compact = false,
 }: {
   icon: string;
   chapter?: string;
   title: string;
   subtitle?: string;
+  compact?: boolean;
 }) {
   return (
-    <header className="mb-6">
+    <header className={`shrink-0 ${compact ? "mb-3" : "mb-6"}`}>
       <div className="flex items-start gap-3">
         <span className="q-icon-box" aria-hidden>
           {icon}
         </span>
         <div className="min-w-0">
           {chapter ? <p className="q-label mb-1">{chapter}</p> : null}
-          <h2 className="q-title">{title}</h2>
-          {subtitle ? <p className="q-subtitle mt-2 max-w-2xl">{subtitle}</p> : null}
+          <h2 className={`q-title ${compact ? "line-clamp-2 text-lg sm:text-xl" : ""}`}>{title}</h2>
+          {subtitle ? (
+            <p className={`q-subtitle max-w-2xl ${compact ? "mt-1 line-clamp-2 text-xs" : "mt-2"}`}>
+              {subtitle}
+            </p>
+          ) : null}
         </div>
       </div>
     </header>
@@ -49,7 +55,7 @@ export function QuestProgress({
   return (
     <div className="mb-4">
       {label ? (
-        <p className="mb-1.5 text-xs font-medium text-gray-400">
+        <p className="mb-1.5 text-xs font-medium text-gray-500">
           <span>{label}</span>
           {!indeterminate && percent != null ? (
             <span className="float-right">{percent}%</span>

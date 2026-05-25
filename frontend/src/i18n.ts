@@ -54,6 +54,8 @@ export type Strings = {
   becomesRiskier: string;
   becomesSafer: string;
   personaLabel: (n: number) => string;
+  personaOf: (current: number, total: number) => string;
+  next: string;
   workingOn: (label: string) => string;
   busyPersona: string;
   busyScenario: string;
@@ -69,6 +71,7 @@ export type Strings = {
   personaBio: string;
   scenarioTitle: string;
   risksHeading: string;
+  impactTab: string;
   riskier: string;
   safer: string;
   voteTitle: string;
@@ -190,6 +193,8 @@ const en: Strings = {
   becomesRiskier: "Becomes riskier",
   becomesSafer: "Becomes safer",
   personaLabel: (n) => `Persona ${n}`,
+  personaOf: (current, total) => `Persona ${current} of ${total}`,
+  next: "Next",
   workingOn: (label) => `Working on: ${label}…`,
   busyPersona: "persona",
   busyScenario: "scenario",
@@ -205,6 +210,7 @@ const en: Strings = {
   personaBio: "Bio",
   scenarioTitle: "Scenario",
   risksHeading: "Risk and safety changes",
+  impactTab: "Impact",
   riskier: "What becomes riskier",
   safer: "What becomes safer",
   voteTitle: "Perspective vote",
@@ -333,6 +339,8 @@ const ne: Strings = {
   becomesRiskier: "जोखिम बढ्छ",
   becomesSafer: "सुरक्षित बन्छ",
   personaLabel: (n) => `पात्र ${n}`,
+  personaOf: (current, total) => `पात्र ${current} / ${total}`,
+  next: "अर्को",
   workingOn: (label) => `काम भइरहेको: ${label}…`,
   busyPersona: "पात्र",
   busyScenario: "परिस्थिति",
@@ -348,6 +356,7 @@ const ne: Strings = {
   personaBio: "परिचय",
   scenarioTitle: "परिस्थिति",
   risksHeading: "जोखिम र सुरक्षा परिवर्तन",
+  impactTab: "प्रभाव",
   riskier: "के जोखिमयुक्त बन्छ",
   safer: "के सुरक्षित बन्छ",
   voteTitle: "दृष्टिकोण मतदान",

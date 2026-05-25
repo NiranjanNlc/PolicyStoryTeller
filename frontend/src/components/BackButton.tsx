@@ -12,7 +12,7 @@ export function BackButton({ to, t }: Props) {
     <button
       type="button"
       onClick={() => navigate(to)}
-      className="q-btn-secondary mb-6 inline-flex items-center gap-2"
+      className="q-btn-secondary mb-4 inline-flex shrink-0 items-center gap-2"
     >
       <span aria-hidden>←</span>
       {t.back}
